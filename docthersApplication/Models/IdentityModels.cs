@@ -17,14 +17,16 @@ namespace docthersApplication.Models
             return userIdentity;
         }
     }
-
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ApplicationDbContext")
         {
         }
-
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<Membership> Memberships { get; set; }
+        public DbSet<Relationship> Relationships { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
