@@ -1,0 +1,29 @@
+﻿@using FluentBootstrap
+
+@{
+    ViewBag.Title = "RoleView";
+}
+
+<h2>RoleView</h2>
+
+@using (var dropdown = Html.Bootstrap().Dropdown("All Roles").Begin())
+{
+    @dropdown.DropdownLink("Super Admin", "/insert link")
+    @dropdown.DropdownLink("Admin", "/insert link").SetState(TextState.Primary)
+    @dropdown.DropdownLink("Editor", "/Disabled")
+    //@dropdown.DropdownDivider()
+    @dropdown.DropdownLink("Google", "http://www.google.com")
+}
+
+@using (var table = Html.Bootstrap().Table().Begin())
+{
+    @table.TableHeaderRow("Name", "Email", "Role")
+    using (var row = table.TableRow().Begin())
+    {
+        
+        @row.TableData("Mark")
+        @row.TableData("Otto")
+        @row.TableData("@mdo")
+    }
+    @table.TableDataRow("Jacob", "Thornton", "@fat")
+}

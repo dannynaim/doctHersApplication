@@ -27,6 +27,13 @@ namespace docthersApplication.Models
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Membership> Memberships { get; set; }
         public DbSet<Relationship> Relationships { get; set; }
+        public DbSet<Distribution> Distributions { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Designation> Designations { get; set; }
+        public DbSet<Campaign> Campaigns { get; set; }
+        public DbSet<Stage> Stages { get; set; }
+        public DbSet<PotentialEmployee> PotentialEmployees { get; set; }
+        public DbSet<User> Users { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

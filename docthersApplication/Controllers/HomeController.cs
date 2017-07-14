@@ -13,6 +13,7 @@ namespace docthersApplication.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
