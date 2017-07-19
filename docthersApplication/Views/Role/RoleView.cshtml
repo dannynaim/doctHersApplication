@@ -1,4 +1,5 @@
 ﻿@using FluentBootstrap
+@model IEnumerable<docthersApplication.Models.User>
 
 @{
     ViewBag.Title = "RoleView";
@@ -20,10 +21,14 @@
     @table.TableHeaderRow("Name", "Email", "Role")
     using (var row = table.TableRow().Begin())
     {
-        
-        @row.TableData("Mark")
-        @row.TableData("Otto")
-        @row.TableData("@mdo")
+        foreach (var i in Model)
+        {
+            @row.TableData(i.FirstName + " " + i.LastName)
+            @row.TableData(i.Email)
+            @row.TableData(i.Roles)
+        }
+        //@row.TableData("Otto")
+        //@row.TableData("@mdo")
     }
-    @table.TableDataRow("Jacob", "Thornton", "@fat")
+    //@table.TableDataRow("Jacob", "Thornton", "@fat")
 }

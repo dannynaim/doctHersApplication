@@ -1,4 +1,5 @@
-﻿using System;
+﻿using docthersApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +10,11 @@ namespace docthersApplication.Controllers
 {
     public class RoleController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext(); 
         // GET: Role
         public ActionResult RoleView()
         {
-            return View();
+            return View(db.Users.ToList());
         }
     }
 }
