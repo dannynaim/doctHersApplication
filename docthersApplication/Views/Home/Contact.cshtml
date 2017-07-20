@@ -1,6 +1,32 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@using FluentBootstrap
+@model IEnumerable<docthersApplication.Models.Patient>
+
+@{
+    ViewBag.Title = "Patients";
 }
+
+@Html.Bootstrap().PageHeader("Page Header")
+
+@using (var table = Html.Bootstrap().Table().Begin())
+{
+    @table.TableHeaderRow("ID", "Name", "CNIC", "Date of Birth", "Age")
+    using (var row = table.TableRow().Begin())
+    {
+        foreach (var i in Model)
+        {
+            @row.TableData(i.Id)
+            @row.TableData(i.Name)
+            @row.TableData(i.CNIC)
+            @row.TableData(i.DateOfBirth)
+            @row.TableData(i.Age)
+        }
+    }
+  
+}
+
+
+
+
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 

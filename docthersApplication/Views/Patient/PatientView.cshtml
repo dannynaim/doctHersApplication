@@ -1,0 +1,25 @@
+﻿@using FluentBootstrap
+@model IEnumerable<docthersApplication.Models.Patient>
+@{
+    ViewBag.Title = "PatientView";
+}
+
+<h2>PatientView</h2>
+
+@using (var table = Html.Bootstrap().Table().Begin())
+{
+    @table.TableHeaderRow("Member ID", "Name", "CNIC", "Primary Contact Number", "Date of birth", "Age")
+    using (var row = table.TableRow().Begin())
+    {
+        foreach (var i in Model)
+        {
+            @row.TableData(i.Id)
+            @row.TableData(i.Name)
+            @row.TableData(i.CNIC)
+            @row.TableData(i.PrimaryContactNumber)
+            @row.TableData(i.DateOfBirth)
+            @row.TableData(i.Age)
+        }
+    }
+}
+
